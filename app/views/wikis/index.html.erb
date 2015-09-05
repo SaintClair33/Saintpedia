@@ -1,5 +1,5 @@
-<h1>All of the Team's Wiki page</h1>
-<table cellpadding="0" cellspacing="0">
+<h1>All of the Wiki categories</h1>
+<table class="table">
   <tr> 
     <th colspan="0">
       <h2>Wikis</h2>
@@ -8,12 +8,13 @@
   <tr>
     <th>Title</th>
     <th>Body</th>
+    <th>Link</th>
   </tr>
 <% @wikis.each do |wiki| %> 
-  <!-- <p><%= link_to wiki.title, wiki %></p> -->
   <tr>
       <td><%= wiki.title %></td>
       <td><%= wiki.body %></td>
+      <td><%= link_to wiki.title, wiki_path(wiki)%></td>
   </tr>
 
 
