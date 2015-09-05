@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  #get 'wikis/index'
+
+  #get 'wikis/show'
+
+  #get 'wikis/new'
+
+  #get 'wikis/edit'
+  resources :wikis
+
+  devise_for :users
+  #get 'welcome/about'
+  get 'about' => 'welcome#about'
+
+  #get 'welcome/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +68,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root to: 'welcome#index'
 end
