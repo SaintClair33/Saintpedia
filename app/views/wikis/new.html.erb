@@ -10,6 +10,11 @@
   <div class="form-group">
   <%= f.label :body %>
   <%= f.text_area :body, rows: 33, class: 'form-control', placeholder: "Place your wiki entry"%>
+  </div>
+
+   <div class="form-group">
+   <%= label_tag(:private, "This wiki is private") %>
+   <%= check_box_tag(:private) %>
    </div>
 
   <div class="form-group">
