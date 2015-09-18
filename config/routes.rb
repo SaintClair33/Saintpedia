@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   #get 'wikis/show'
 
   #get 'wikis/new'
-
+resources :charges, only: [:new, :create] 
+  put 'downgrade_user' => "charges#downgrade_user"
   #get 'wikis/edit'
   resources :wikis
+
+  #resources :users, only: [:show]
 
   devise_for :users
   #get 'welcome/about'

@@ -30,7 +30,7 @@ class WikisController < ApplicationController
   end
 
   def edit
-    authorize @post
+    authorize @wiki
   end
 
   def update
