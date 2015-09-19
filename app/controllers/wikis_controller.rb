@@ -2,11 +2,12 @@ class WikisController < ApplicationController
   before_action :find_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to(current_user.can_make_private_wiki?)
     authorize @wikis
   end
 
-  def show
+  def show?
+    authorize @wikis
   end
 
   def new
@@ -17,7 +18,7 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new(wiki_params)
-    @wiki.user_id = current_user
+    @wiki.user_id = current_user.id
     authorize @wiki
     
     if @wiki.save

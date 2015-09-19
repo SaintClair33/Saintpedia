@@ -37,6 +37,7 @@ class ChargesController < ApplicationController
 
   def downgrade_user
     current_user.update_attributes(role: "standard")
+    flash[:error] = "After you downgrade your private wikis will be public"
     redirect_to :back
   end
 
