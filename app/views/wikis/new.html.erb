@@ -21,6 +21,9 @@
       
    </div> 
 
+   <div class="form-group">
+      <% if current_user.can_make_private_wiki? %>
+
 
   <div class="form-group">
     <%= f.submit  "Save", class: 'btn btn-success' %>

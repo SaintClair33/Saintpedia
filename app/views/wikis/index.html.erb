@@ -11,15 +11,14 @@
     <th>Link</th>
     <th>User</th>
   </tr>
-<% @wikis.each do |wiki| %> 
-  <tr>
-      <td><%= wiki.title %></td>
-      <td><%= wiki.body %></td>
-      <td><%= link_to wiki.title, wiki_path(wiki)%></td>
-      <td><%= wiki.user.name if wiki.user %></td>
-
-  </tr>
-
-
-<% end %>
+  <% unless @wikis.nil? %>
+    <% @wikis.each do |wiki| %> 
+      <tr>
+          <td><%= wiki.title %></td>
+          <td><%= wiki.body %></td>
+          <td><%= link_to wiki.title, wiki_path(wiki)%></td>
+          <td><%= wiki.user.name if wiki.user %></td>
+      </tr>
+    <% end %>
+    <% end %>
 </table>
