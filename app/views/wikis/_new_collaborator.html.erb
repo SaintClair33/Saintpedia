@@ -1,0 +1,7 @@
+<p>
+  <%= form_for [@wiki, collaborator], {controller: "collaborators", action: "create"} do |f| %>
+    <%= f.label :email %>
+    <%= text_field_tag :email %>
+    <%= f.submit "Add" %>
+  <% end %>
+</p>

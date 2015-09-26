@@ -2,18 +2,17 @@ class WikisController < ApplicationController
   before_action :find_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wikis = Wiki.visible_to(current_user.can_make_private_wiki?)
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
   end
 
-  def show?
-    authorize @wikis
+  def show
+
+    authorize @wiki
   end
 
   def new
     @wiki = Wiki.new
     authorize @wiki
-
   end
 
   def create
@@ -31,7 +30,9 @@ class WikisController < ApplicationController
   end
 
   def edit
-    authorize @wiki
+    @collaborators = @wiki.collaborators
+    @new_collaborator = Collaborator.new
+    #authorize @wiki
   end
 
   def update

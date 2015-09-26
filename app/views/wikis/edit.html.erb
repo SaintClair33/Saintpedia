@@ -10,21 +10,24 @@
   <%= f.label :body %>
   <%= f.text_area :body, rows: 33, class: 'form-control', placeholder: "Place your wiki entry" %>
   </div>
-
-  
+  <% if current_user.role != 'standard' %>
    <div class="form-group">
-   <!-- <%= label_tag(:private, "This wiki is private") %> -->
-   <%= f.label :private %>
-   <%= check_box_tag :private %>
-   </div> 
+    <%# label_tag(:private, "This wiki is private") %>
+     <%= f.label :private %>
+     <%= f.check_box :private %>
+   </div>
+  <% end %>
 
   <div class="form-group">
   <%= f.submit "Save", class: 'btn btn-success' %>
   </div>
-
 <% end %>
 
 
-
+   <% unless @wiki.public? %> 
+    <h2>Collaborators</h2>
+    <%= render partial: 'new_collaborator', locals: {collaborator: @new_collaborator} %>
+    <%= render partial: 'collaborator', collection: @collaborators %>
+   <% end %>
 
 

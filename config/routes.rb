@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 resources :charges, only: [:new, :create] 
   put 'downgrade_user' => "charges#downgrade_user"
   #get 'wikis/edit'
-  resources :wikis
+  resources :wikis do
+    resources :collaborators, only: [:create, :destroy]
+  end
 
   #resources :users, only: [:show]
 
