@@ -6,7 +6,6 @@ class WikisController < ApplicationController
   end
 
   def show
-
     authorize @wiki
   end
 
