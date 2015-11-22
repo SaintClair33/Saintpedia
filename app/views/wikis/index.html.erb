@@ -8,14 +8,16 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th>Application</th>
     <th>Link</th>
-    <th>User</th>
+    <th>Opened by</th>
   </tr>
   <% unless @wikis.nil? %>
     <% @wikis.each do |wiki| %> 
       <tr>
           <td><%= wiki.title %></td>
           <td><%= wiki.body %></td>
+          <td><%= wiki.app_name %></td>
           <td><%= link_to wiki.title, wiki_path(wiki)%></td>
           <td><%= wiki.user.name if wiki.user %></td>
       </tr>
