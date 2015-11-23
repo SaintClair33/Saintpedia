@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121220258) do
+ActiveRecord::Schema.define(version: 20151123162550) do
 
   create_table "applications", force: :cascade do |t|
     t.string   "app_name"
@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 20151121220258) do
   create_table "wikis", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.boolean  "private",    default: false
+    t.boolean  "private",     default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "application"
   end
 
   add_index "wikis", ["user_id"], name: "index_wikis_on_user_id"
