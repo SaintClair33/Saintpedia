@@ -19,7 +19,7 @@
           <td><%= wiki.body %></td>
           <td><%= wiki.application %></td>
           <td><%= link_to wiki.title, wiki_path(wiki)%></td>
-          <td><%= wiki.user.name if wiki.user %></td>
+          <td><%= wiki.user.email if wiki.user %></td>
       </tr>
     <% end %>
     <% end %>
